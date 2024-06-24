@@ -8,6 +8,7 @@ app = FastAPI()
 
 models.Base.metadata.create_all(bind=engine)
 
+# Make sure app gets everything from "/static" directory
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(auth.router)
