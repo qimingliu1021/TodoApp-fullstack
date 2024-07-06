@@ -20,6 +20,8 @@ Quit - .quit
 
 Show all the columns in this table - .schema
 
+Change format of display
+
 # Long hex string for SECRET
 
 openssl rand -hex 32
