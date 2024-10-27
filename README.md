@@ -1,3 +1,7 @@
+# TodoApp with FastAPI
+
+From Udemy course: https://www.udemy.com/course/fastapi-the-complete-course/
+
 # Things to install:
 
 pip 3 install python-jose, passlib, psycopg2, sqlalchemy

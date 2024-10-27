@@ -189,9 +189,3 @@ async def register_user(request: Request, email: str = Form(...), username: str 
 
 
 
-
-
-
-
-
-

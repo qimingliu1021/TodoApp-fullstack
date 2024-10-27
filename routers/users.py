@@ -31,6 +31,7 @@ class UserInfo:
   old_password: str
   new_password: str
 
+
 def get_db():
     try:
         db = SessionLocal()
@@ -38,15 +39,19 @@ def get_db():
     finally:
         db.close()
 
+
 @router.get("/change-password", response_class=HTMLResponse)
 async def reach_change_password_page(request: Request): 
   return templates.TemplateResponse("change-password.html", {"request": request})
 
+
 @router.post("/change-password", response_class=HTMLResponse)
 async def change_password(request: Request, UserInfo, db: Session = Depends(get_db)): 
-  user = get_current_user(request)
+  
   print("in the changing function rn...")
-  # db.query(models.Users).filter(models.Users.username == username).first()
+
+  user = await get_current_user(request)
+
   user_model = db.query(models.Users).filter(models.Users.username == user.username).first()
 
   if user_model.username != UserInfo.username or user_model.hashed_password != UserInfo.password: 
